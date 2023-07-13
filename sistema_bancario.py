@@ -39,7 +39,7 @@ while True:
         elif valor > saldo:
             print("Não tem saldo suficiente na conta")
         elif valor > limite:
-            print("Valor não permitido. Maior que limite diario")
+            print(f"Valor não permitido. Limite diário de R$ {limite:.2f} excedido")
         elif valor < 0:
             print("valor invalido para saque")
 
@@ -51,13 +51,18 @@ while True:
     # Extrato    
     elif opcao == "e":
         
-        print(f"""
-        ========= Extrato =========: 
-        {extrato}
+        if saldo == 0:
+            print("Não foram realizadas movimentações.") 
 
-        {f"Saldo: {saldo}"}
-        ===========================
-        """)
+
+        else:
+            print(f"""
+            ========= Extrato =========: 
+            {extrato}
+
+            {f"Saldo: {saldo}"}
+            ===========================
+            """)
     # Sair
     elif opcao == "q":
         break
